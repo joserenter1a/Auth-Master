@@ -134,7 +134,7 @@ class App(tk.Tk):
         'Content-Type': 'application/json'
         }
 
-        response = requests.request("POST", url, headers=headers, data=payload)
+        response = requests.request("POST", url, headers=headers, data=payload, timeout=60)
 
         dict_string = response.text
         score = 0
@@ -172,7 +172,7 @@ class App(tk.Tk):
         'Content-Type': 'application/json'
         }
 
-        response = requests.request("POST", url, headers=headers, data=payload)
+        response = requests.request("POST", url, headers=headers, data=payload, timeout=60)
 
         dict_string = response.text
         score = 0
@@ -208,7 +208,7 @@ class App(tk.Tk):
 
         headers = {"accept": "application/json"}
 
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, timeout=60)
         parsed_dict = self.parse_dict_string(response.text)
         summary = parsed_dict
         try:
